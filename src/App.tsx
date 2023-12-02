@@ -1,9 +1,9 @@
 import React from "react";
 import "@/styles/globals.css";
-import { Button } from "@/components/shadcn/ui";
+import Home from "@/pages/Home";
 
 const App: React.FC = () => {
-  return <Button className="rounded-full text-lg">Button</Button>;
+  return <Home />;
 };
 
 export default App;
