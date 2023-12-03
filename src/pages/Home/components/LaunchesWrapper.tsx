@@ -25,7 +25,18 @@ const LaunchesWrapper: React.FC = () => {
           </div>
 
           <ul className="mt-6 flex flex-col gap-5 py-2">
-            {launches?.results.map(() => <LaunchRecord />)}
+            {launches?.results.map((launch) => (
+              <LaunchRecord
+                avatarImageURL={launch.links.patch.small}
+                avatarImageAlt={launch.name}
+                flightNumber={launch.flight_number}
+                launchDate={launch.date_utc}
+                launchSuccess={launch.success}
+                missionName={launch.name}
+                youtubeVideoURL={launch.links.webcast}
+                key={launch.id}
+              />
+            ))}
           </ul>
         </Card.CardContent>
       </Card.Card>
