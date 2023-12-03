@@ -1,9 +1,14 @@
 import { Card, Input } from "@/components/shadcn/ui";
+import useLaunches from "@/hooks/useLaunch";
 import React from "react";
 import { FaSearch } from "react-icons/fa";
 import LaunchRecord from "./LaunchRecord";
 
 const LaunchesWrapper: React.FC = () => {
+  const { isLoading, launches } = useLaunches();
+
+  if (isLoading) return <div>Carregando...</div>;
+
   return (
     <section>
       <Card.Card className="my-10 rounded-md  py-5 text-center shadow-lg">
@@ -20,13 +25,7 @@ const LaunchesWrapper: React.FC = () => {
           </div>
 
           <ul className="mt-6 flex flex-col gap-5 py-2">
-            <LaunchRecord />
-            <LaunchRecord />
-            <LaunchRecord />
-            <LaunchRecord />
-            <LaunchRecord />
-            <LaunchRecord />
-            <LaunchRecord />
+            {launches?.results.map(() => <LaunchRecord />)}
           </ul>
         </Card.CardContent>
       </Card.Card>
