@@ -98,7 +98,7 @@ export type LaunchResponse = {
 
 export type LaunchStats = {
   rocketName: string;
-  successFull: number;
+  successful: number;
   failed: number;
   launches: {
     launchYear: number;
