@@ -32,9 +32,10 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "craco start",
+    "start": "NODE_ENV=development craco start",
     "build": "craco build",
     "test": "craco test",
+    "start-prod": "serve -s build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
