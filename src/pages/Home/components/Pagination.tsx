@@ -23,7 +23,7 @@ const Pagination: React.FC<PaginationProps> = ({
   };
 
   return (
-    <div className="flex justify-center px-4">
+    <div className="flex w-full max-w-[100%] overflow-hidden px-4 sm:justify-start md:justify-center">
       {Array.from(
         { length: endPage - startPage + 1 },
         (_, i) => startPage + i,

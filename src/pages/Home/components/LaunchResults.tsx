@@ -7,22 +7,22 @@ const LaunchResults: React.FC = () => {
   const failureCount = 30;
 
   return (
-    <Card.Card className="rounded-md px-4 py-5 text-center shadow-lg">
-      <Card.CardTitle className="mb-5 text-xl font-semibold uppercase text-gray-600">
+    <Card.Card className="md-w-[50%] w-full rounded-md px-2 py-5 text-center shadow-lg">
+      <Card.CardTitle className="mb-5 text-lg font-semibold uppercase text-gray-600">
         Resultado de Lançamento
       </Card.CardTitle>
 
-      <Card.CardContent className="flex items-center justify-around">
+      <Card.CardContent className="flex items-center justify-between">
         <div className="flex items-center">
-          <FaCheck className="mr-2 text-2xl text-green-500" />
+          <FaCheck className="text-xl text-green-500" />
           <p className="text-base font-medium uppercase text-gray-500">
             Sucesso: {successCount}
           </p>
         </div>
 
-        <div className="flex items-center">
-          <FaTimes className="mr-2 text-2xl text-red-500" />
-          <p className="text-base font-medium uppercase text-gray-500">
+        <div className="flex items-center ">
+          <FaTimes className="text-xl text-red-500" />
+          <p className="text-sm font-medium uppercase text-gray-500">
             Falha: {failureCount}
           </p>
         </div>

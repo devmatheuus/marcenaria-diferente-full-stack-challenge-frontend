@@ -4,7 +4,7 @@ import LaunchResults from "./LaunchResults";
 
 const GraphicsSection: React.FC = () => {
   return (
-    <section className="flex flex-col gap-10">
+    <section className="flex w-full flex-col gap-10 md:flex-row">
       <LaunchResults />
       <ChartOfLaunchesByYear />
     </section>

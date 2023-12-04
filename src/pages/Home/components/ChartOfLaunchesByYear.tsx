@@ -22,12 +22,30 @@ ChartJS.register(
 
 export const options = {
   responsive: true,
+
+  //diminuir tamanho da legenda
+  plugins: {
+    legend: {
+      display: false,
+    },
+  },
+
   scales: {
     x: {
       stacked: true,
+      ticks: {
+        font: {
+          size: 8,
+        },
+      },
     },
     y: {
       stacked: true,
+      ticks: {
+        font: {
+          size: 8,
+        },
+      },
     },
   },
 };
@@ -160,12 +178,12 @@ const data = {
 
 const ChartOfLaunchesByYear: React.FC = () => {
   return (
-    <Card.Card className="rounded-md px-4 py-5 text-center shadow-lg">
-      <Card.CardTitle className="mb-5 text-xl font-semibold uppercase text-gray-600">
+    <Card.Card className="md-w-[50%] w-full rounded-md px-2 py-5 text-center shadow-lg">
+      <Card.CardTitle className="mb-5 text-lg font-semibold uppercase text-gray-600">
         Lançamentos por ano
       </Card.CardTitle>
 
-      <Bar options={options} data={data} />
+      <Bar options={options} data={data} className="w-full max-w-[100%]" />
     </Card.Card>
   );
 };

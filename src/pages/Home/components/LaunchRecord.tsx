@@ -15,7 +15,7 @@ type LaunchRecordProps = {
 
 const LaunchRecord: React.FC<LaunchRecordProps> = (props) => {
   return (
-    <li className="flex justify-between rounded-sm px-4 py-3 shadow-md">
+    <li className="flex justify-between rounded-sm px-2 py-3 shadow-md">
       <div className="flex w-fit flex-col items-center justify-between gap-2">
         <Avatar.Avatar className="h-8 w-8">
           <Avatar.AvatarImage
@@ -28,10 +28,10 @@ const LaunchRecord: React.FC<LaunchRecordProps> = (props) => {
         </p>
       </div>
       <div className="flex w-fit flex-col items-center justify-between">
-        <p className="text-base font-semibold text-gray-600">
+        <p className="w-14 overflow-hidden  text-ellipsis whitespace-nowrap text-sm font-semibold text-gray-600 md:w-full md:text-base">
           {props.missionName}
         </p>
-        <p className="text-base font-semibold text-gray-600">
+        <p className="text-xs font-semibold text-gray-600 md:text-base">
           {formatDate(props.launchDate)}
         </p>
       </div>
@@ -48,9 +48,13 @@ const LaunchRecord: React.FC<LaunchRecordProps> = (props) => {
         </Button>
 
         {props.launchSuccess ? (
-          <p className="text-base font-semibold text-green-400">Sucesso</p>
+          <p className="text-sm font-semibold text-green-400 md:text-base">
+            Sucesso
+          </p>
         ) : (
-          <p className="text-base font-semibold text-red-400">Falha</p>
+          <p className="text-sm font-semibold text-red-400 md:text-base">
+            Falha
+          </p>
         )}
       </div>
     </li>

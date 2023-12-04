@@ -18,9 +18,9 @@ const LaunchesWrapper: React.FC = () => {
   const totalPages = launches?.totalPages || 0;
 
   return (
-    <section>
-      <Card.Card className="my-10 rounded-md  py-5 text-center shadow-lg">
-        <Card.CardTitle className="mb-5 text-xl font-semibold uppercase text-gray-600">
+    <section className="w-full">
+      <Card.Card className="my-10 rounded-md py-5 text-center shadow-lg">
+        <Card.CardTitle className="mb-5 text-lg font-semibold uppercase text-gray-600">
           Registro de Lançamentos
         </Card.CardTitle>
         <Card.CardContent>
