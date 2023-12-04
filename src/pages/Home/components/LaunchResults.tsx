@@ -8,7 +8,10 @@ const LaunchResults: React.FC = () => {
   const { width } = useWindowSize();
 
   return (
-    <Card.Card className="md-w-[50%] w-full rounded-md px-2 py-5 text-center shadow-lg">
+    <Card.Card
+      className="md-w-[50%] w-full rounded-md px-2 py-5 text-center shadow-lg"
+      role="section"
+    >
       <Card.CardTitle className="mb-5 text-lg font-semibold uppercase text-gray-600">
         Resultado de Lançamento
       </Card.CardTitle>
