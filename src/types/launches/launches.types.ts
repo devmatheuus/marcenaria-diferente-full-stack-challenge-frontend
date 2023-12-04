@@ -95,3 +95,13 @@ export type LaunchResponse = {
   hasNext: boolean;
   hasPrev: boolean;
 };
+
+export type LaunchStats = {
+  rocketName: string;
+  successFull: number;
+  failed: number;
+  launches: {
+    launchYear: number;
+    launchCount: number;
+  }[];
+};
