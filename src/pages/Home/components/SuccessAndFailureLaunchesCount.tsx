@@ -1,11 +1,12 @@
+import Loader from "@/components/Loader";
 import useLaunchesStats from "@/hooks/useLaunchStats";
 import React from "react";
 import { FaCheck, FaTimes } from "react-icons/fa";
 
 const SuccessAndFailureLaunchesCount: React.FC = () => {
-  const { isLoading, launchesStats } = useLaunchesStats();
+  const { launchesStats, isLoading } = useLaunchesStats();
 
-  if (isLoading) return <p>Carregando...</p>;
+  if (isLoading) return <Loader />;
 
   const successCount = launchesStats?.reduce(
     (acc, curr) => acc + curr.successful,

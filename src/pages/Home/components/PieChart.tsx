@@ -5,6 +5,7 @@ import useLaunchesStats from "@/hooks/useLaunchStats";
 import calculateTotalLaunches from "@/utils/calculateTotalLaunches";
 import SuccessAndFailureLaunchesCount from "./SuccessAndFailureLaunchesCount";
 import LAUNCHES_GRAPHIC_COLORS from "@/constants/launchesGraphicColors";
+import Loader from "@/components/Loader";
 
 ChartJS.register(ArcElement);
 
@@ -44,9 +45,9 @@ const PieLegend: React.FC<PieLegendProps> = ({ color, text }) => {
 };
 
 const PieChart: React.FC = () => {
-  const { isLoading, launchesStats } = useLaunchesStats();
+  const { launchesStats, isLoading } = useLaunchesStats();
 
-  if (isLoading) return <p>Carregando...</p>;
+  if (isLoading) return <Loader />;
 
   const labels = launchesStats?.map((launch) => launch.rocketName);
 

@@ -12,6 +12,7 @@ import {
 import { Bar } from "react-chartjs-2";
 import useLaunchesStats from "@/hooks/useLaunchStats";
 import LAUNCHES_GRAPHIC_COLORS from "@/constants/launchesGraphicColors";
+import Loader from "@/components/Loader";
 
 ChartJS.register(
   CategoryScale,
@@ -54,7 +55,16 @@ const options = {
 const ChartOfLaunchesByYear: React.FC = () => {
   const { launchesStats, isLoading } = useLaunchesStats();
 
-  if (isLoading) return <p>Carregando...</p>;
+  if (isLoading) {
+    return (
+      <Card.Card className="md-w-[50%] w-full justify-center rounded-md px-2 py-5 text-center shadow-lg">
+        <Card.CardTitle className="mb-5 text-lg font-semibold uppercase text-gray-600">
+          Lançamentos por ano
+        </Card.CardTitle>
+        <Loader />
+      </Card.Card>
+    );
+  }
 
   const yearsSet = new Set<number>();
 
