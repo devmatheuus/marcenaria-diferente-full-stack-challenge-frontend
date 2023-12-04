@@ -23,7 +23,9 @@ const LaunchesWrapper: React.FC = () => {
         <Card.CardTitle className="mb-5 text-lg font-semibold uppercase text-gray-600">
           Registro de Lançamentos
         </Card.CardTitle>
-        <Loader />
+        <div className="flex h-screen w-full items-center">
+          <Loader />
+        </div>
       </Card.Card>
     );
 
