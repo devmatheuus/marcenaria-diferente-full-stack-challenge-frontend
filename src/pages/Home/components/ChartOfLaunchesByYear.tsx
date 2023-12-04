@@ -11,6 +11,7 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import useLaunchesStats from "@/hooks/useLaunchStats";
+import LAUNCHES_GRAPHIC_COLORS from "@/constants/launchesGraphicColors";
 
 ChartJS.register(
   CategoryScale,
@@ -167,7 +168,7 @@ const ChartOfLaunchesByYear: React.FC = () => {
 
   const data = {
     labels: yearsArray,
-    datasets: launchesStats!.map((rocket) => ({
+    datasets: launchesStats!.map((rocket, i) => ({
       label: rocket.rocketName,
       data: yearsArray.map((year) => {
         const launch = rocket.launches.find(
@@ -175,9 +176,7 @@ const ChartOfLaunchesByYear: React.FC = () => {
         );
         return launch ? launch.launchCount : 0;
       }),
-      backgroundColor: `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
-        Math.random() * 256,
-      )}, ${Math.floor(Math.random() * 256)})`,
+      backgroundColor: LAUNCHES_GRAPHIC_COLORS[i],
     })),
   };
   return (

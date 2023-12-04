@@ -4,6 +4,7 @@ import { Chart as ChartJS, ArcElement } from "chart.js";
 import useLaunchesStats from "@/hooks/useLaunchStats";
 import calculateTotalLaunches from "@/utils/calculateTotalLaunches";
 import SuccessAndFailureLaunchesCount from "./SuccessAndFailureLaunchesCount";
+import LAUNCHES_GRAPHIC_COLORS from "@/constants/launchesGraphicColors";
 
 ChartJS.register(ArcElement);
 
@@ -13,6 +14,13 @@ const options = {
   plugins: {
     legend: {
       display: false,
+    },
+  },
+  //adicionar borda branca
+  elements: {
+    arc: {
+      borderWidth: 2,
+      borderColor: "#fff",
     },
   },
   animation: {
@@ -54,8 +62,7 @@ const PieChart: React.FC = () => {
     datasets: [
       {
         data: [firstLaunchTotal, secondLaunchTotal, thirdLaunchTotal],
-        backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-        hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+        backgroundColor: LAUNCHES_GRAPHIC_COLORS,
       },
     ],
   };
