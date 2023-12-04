@@ -15,7 +15,7 @@ type LaunchRecordProps = {
 
 const LaunchRecord: React.FC<LaunchRecordProps> = (props) => {
   return (
-    <li className="flex justify-around rounded-sm py-3 shadow-md">
+    <li className="flex justify-between rounded-sm px-4 py-3 shadow-md">
       <div className="flex w-fit flex-col items-center justify-between gap-2">
         <Avatar.Avatar className="h-8 w-8">
           <Avatar.AvatarImage
