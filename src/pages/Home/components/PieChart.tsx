@@ -16,7 +16,6 @@ const options = {
       display: false,
     },
   },
-  //adicionar borda branca
   elements: {
     arc: {
       borderWidth: 2,
