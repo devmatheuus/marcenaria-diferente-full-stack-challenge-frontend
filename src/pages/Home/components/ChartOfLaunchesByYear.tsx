@@ -21,10 +21,9 @@ ChartJS.register(
   Legend,
 );
 
-export const options = {
+const options = {
   responsive: true,
 
-  //diminuir tamanho da legenda
   plugins: {
     legend: {
       display: false,
