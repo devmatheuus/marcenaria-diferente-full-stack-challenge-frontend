@@ -45,9 +45,9 @@ const PieLegend: React.FC<PieLegendProps> = ({ color, text }) => {
 };
 
 const PieChart: React.FC = () => {
-  const { launchesStats, isLoading } = useLaunchesStats();
+  const { launchesStats, isLoading, isError } = useLaunchesStats();
 
-  if (isLoading) return <Loader />;
+  if (isLoading || isError) return <Loader />;
 
   const labels = launchesStats?.map((launch) => launch.rocketName);
 

@@ -12,6 +12,8 @@ const useLaunchesStats = () => {
 
       return response.data;
     },
+    retry: 20,
+    retryDelay: 2000,
   });
 
   return {

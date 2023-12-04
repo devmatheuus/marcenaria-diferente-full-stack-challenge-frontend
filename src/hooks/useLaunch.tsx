@@ -18,6 +18,8 @@ const useLaunches = (page = 1, limit = 4, search?: string) => {
 
       return response.data;
     },
+    retry: 20,
+    retryDelay: 2000,
   });
 
   return {

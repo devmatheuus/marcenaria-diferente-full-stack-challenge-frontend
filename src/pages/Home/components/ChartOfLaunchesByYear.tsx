@@ -53,9 +53,9 @@ const options = {
 };
 
 const ChartOfLaunchesByYear: React.FC = () => {
-  const { launchesStats, isLoading } = useLaunchesStats();
+  const { launchesStats, isLoading, isError } = useLaunchesStats();
 
-  if (isLoading) {
+  if (isLoading || isError) {
     return (
       <Card.Card className="md-w-[50%] w-full justify-center rounded-md px-2 py-5 text-center shadow-lg">
         <Card.CardTitle className="mb-5 text-lg font-semibold uppercase text-gray-600">

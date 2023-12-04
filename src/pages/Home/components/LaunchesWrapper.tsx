@@ -13,9 +13,13 @@ const LaunchesWrapper: React.FC = () => {
   const [debouncedSearch] = useDebounce(search, 1000);
   const RESULTS_PER_PAGE = 5;
 
-  const { launches, isLoading } = useLaunches(currentPage, RESULTS_PER_PAGE, debouncedSearch);
+  const { launches, isLoading, isError } = useLaunches(
+    currentPage,
+    RESULTS_PER_PAGE,
+    debouncedSearch,
+  );
 
-  if (isLoading)
+  if (isLoading || isError)
     return (
       <Card.Card
         className="my-10 w-full rounded-md py-5 text-center shadow-lg"

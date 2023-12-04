@@ -4,9 +4,9 @@ import React from "react";
 import { FaCheck, FaTimes } from "react-icons/fa";
 
 const SuccessAndFailureLaunchesCount: React.FC = () => {
-  const { launchesStats, isLoading } = useLaunchesStats();
+  const { launchesStats, isLoading, isError } = useLaunchesStats();
 
-  if (isLoading) return <Loader />;
+  if (isLoading || isError) return <Loader />;
 
   const successCount = launchesStats?.reduce(
     (acc, curr) => acc + curr.successful,
