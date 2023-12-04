@@ -3,7 +3,12 @@ import { FaRocket } from "react-icons/fa";
 
 const Logo: React.FC = () => {
   return (
-    <header className="flex w-full items-center justify-center bg-slate-50 py-5">
+    <header
+      className="absolute top-0 mb-10 flex w-full items-center justify-center bg-white py-4"
+      style={{
+        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+      }}
+    >
       <div className="flex items-center gap-3 ">
         <FaRocket className="text-2xl text-[#ff0c65]" />
         <h1
