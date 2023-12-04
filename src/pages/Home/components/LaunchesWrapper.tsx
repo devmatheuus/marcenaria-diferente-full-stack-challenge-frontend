@@ -3,11 +3,16 @@ import useLaunches from "@/hooks/useLaunch";
 import React from "react";
 import { FaSearch } from "react-icons/fa";
 import LaunchRecord from "./LaunchRecord";
+import Pagination from "./Pagination";
 
 const LaunchesWrapper: React.FC = () => {
-  const { isLoading, launches } = useLaunches();
+  const [currentPage, setCurrentPage] = React.useState<number>(1);
+
+  const { isLoading, launches } = useLaunches(currentPage);
 
   if (isLoading) return <div>Carregando...</div>;
+
+  const totalPages = launches?.totalPages || 0;
 
   return (
     <section>
@@ -39,6 +44,12 @@ const LaunchesWrapper: React.FC = () => {
             ))}
           </ul>
         </Card.CardContent>
+
+        <Pagination
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          totalPages={totalPages}
+        />
       </Card.Card>
     </section>
   );
