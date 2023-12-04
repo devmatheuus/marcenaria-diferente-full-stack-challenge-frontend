@@ -11,8 +11,9 @@ const LaunchesWrapper: React.FC = () => {
   const [currentPage, setCurrentPage] = React.useState<number>(1);
   const [search, setSearch] = React.useState<string>("");
   const [debouncedSearch] = useDebounce(search, 1000);
+  const RESULTS_PER_PAGE = 5;
 
-  const { launches, isLoading } = useLaunches(currentPage, 4, debouncedSearch);
+  const { launches, isLoading } = useLaunches(currentPage, RESULTS_PER_PAGE, debouncedSearch);
 
   if (isLoading)
     return (
