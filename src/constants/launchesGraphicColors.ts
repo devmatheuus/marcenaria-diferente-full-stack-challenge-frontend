@@ -1,3 +1,3 @@
-const LAUNCHES_GRAPHIC_COLORS = ["#E52E71", "#FF8A00", "#FF6347"] as const;
+const LAUNCHES_GRAPHIC_COLORS = ["#ff0c65", "#b85ab4", "#800080"] as const;
 
 export default LAUNCHES_GRAPHIC_COLORS;

@@ -34,7 +34,7 @@ const Pagination: React.FC<PaginationProps> = ({
           style={{
             background:
               page === currentPage
-                ? "-webkit-linear-gradient(45deg, #ff8a00, #e52e71)"
+                ? "-webkit-linear-gradient(45deg,#b85ab4, #ff0c65)"
                 : "#fff",
           }}
           className={`mx-1 rounded-md px-3 py-1 shadow  transition-all hover:brightness-110`}
@@ -45,7 +45,7 @@ const Pagination: React.FC<PaginationProps> = ({
               background:
                 page === currentPage
                   ? "transparent"
-                  : "-webkit-linear-gradient(45deg, #ff8a00, #e52e71)",
+                  : "-webkit-linear-gradient(45deg,#b85ab4, #ff0c65)",
               WebkitBackgroundClip: page === currentPage ? "initial" : "text",
               WebkitTextFillColor:
                 page === currentPage ? "initial" : "transparent",
