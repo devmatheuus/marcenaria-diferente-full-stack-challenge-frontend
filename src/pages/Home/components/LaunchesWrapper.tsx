@@ -4,11 +4,14 @@ import React from "react";
 import { FaSearch } from "react-icons/fa";
 import LaunchRecord from "./LaunchRecord";
 import Pagination from "./Pagination";
+import { useDebounce } from "use-debounce";
 
 const LaunchesWrapper: React.FC = () => {
   const [currentPage, setCurrentPage] = React.useState<number>(1);
+  const [search, setSearch] = React.useState<string>("");
+  const [debouncedSearch] = useDebounce(search, 1000);
 
-  const { isLoading, launches } = useLaunches(currentPage);
+  const { isLoading, launches } = useLaunches(currentPage, 4, debouncedSearch);
 
   if (isLoading) return <div>Carregando...</div>;
 
@@ -26,6 +29,8 @@ const LaunchesWrapper: React.FC = () => {
             <Input
               placeholder="Digite sua busca"
               className="w-full rounded-none border-l-0 border-none bg-transparent focus:border-none focus:outline-none focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-gray-500 focus-visible:ring-offset-0 focus-visible:ring-offset-transparent"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
             />
           </div>
 
