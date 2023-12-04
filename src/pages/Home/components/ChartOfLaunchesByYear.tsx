@@ -10,6 +10,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import useLaunchesStats from "@/hooks/useLaunchStats";
 
 ChartJS.register(
   CategoryScale,
@@ -150,33 +151,36 @@ const dataAPI = [
   },
 ];
 
-const yearsSet = new Set();
-
-dataAPI.forEach((rocket) => {
-  rocket.launches.forEach((launch) => {
-    yearsSet.add(launch.launchYear);
-  });
-});
-
-const yearsArray = Array.from(yearsSet).sort();
-
-const data = {
-  labels: yearsArray,
-  datasets: dataAPI.map((rocket) => ({
-    label: rocket.rocketName,
-    data: yearsArray.map((year) => {
-      const launch = rocket.launches.find(
-        (launch) => launch.launchYear === year,
-      );
-      return launch ? launch.launchCount : 0;
-    }),
-    backgroundColor: `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
-      Math.random() * 256,
-    )}, ${Math.floor(Math.random() * 256)})`,
-  })),
-};
-
 const ChartOfLaunchesByYear: React.FC = () => {
+  const { launchesStats, isLoading } = useLaunchesStats();
+
+  if (isLoading) return <p>Carregando...</p>;
+
+  const yearsSet = new Set<number>();
+
+  dataAPI.forEach((rocket) => {
+    rocket.launches.forEach((launch) => {
+      yearsSet.add(launch.launchYear);
+    });
+  });
+
+  const yearsArray = Array.from(yearsSet).sort();
+
+  const data = {
+    labels: yearsArray,
+    datasets: launchesStats!.map((rocket) => ({
+      label: rocket.rocketName,
+      data: yearsArray.map((year) => {
+        const launch = rocket.launches.find(
+          (launch) => launch.launchYear === year,
+        );
+        return launch ? launch.launchCount : 0;
+      }),
+      backgroundColor: `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
+        Math.random() * 256,
+      )}, ${Math.floor(Math.random() * 256)})`,
+    })),
+  };
   return (
     <Card.Card className="md-w-[50%] w-full rounded-md px-2 py-5 text-center shadow-lg">
       <Card.CardTitle className="mb-5 text-lg font-semibold uppercase text-gray-600">
