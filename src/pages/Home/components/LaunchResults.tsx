@@ -1,10 +1,21 @@
 import { Card } from "@/components/shadcn/ui";
+import useLaunchesStats from "@/hooks/useLaunchStats";
 import React from "react";
 import { FaCheck, FaTimes } from "react-icons/fa";
 
 const LaunchResults: React.FC = () => {
-  const successCount = 70;
-  const failureCount = 30;
+  const { isLoading, launchesStats } = useLaunchesStats();
+
+  if (isLoading) return <p>Carregando...</p>;
+
+  const successCount = launchesStats?.reduce(
+    (acc, curr) => acc + curr.successful,
+    0,
+  );
+  const failureCount = launchesStats?.reduce(
+    (acc, curr) => acc + curr.failed,
+    0,
+  );
 
   return (
     <Card.Card className="md-w-[50%] w-full rounded-md px-2 py-5 text-center shadow-lg">
@@ -12,16 +23,16 @@ const LaunchResults: React.FC = () => {
         Resultado de Lançamento
       </Card.CardTitle>
 
-      <Card.CardContent className="flex items-center justify-between">
+      <Card.CardContent className="flex items-center justify-between px-2">
         <div className="flex items-center">
-          <FaCheck className="text-xl text-green-500" />
+          <FaCheck className="mr-1 text-base text-green-500" />
           <p className="text-base font-medium uppercase text-gray-500">
             Sucesso: {successCount}
           </p>
         </div>
 
         <div className="flex items-center ">
-          <FaTimes className="text-xl text-red-500" />
+          <FaTimes className="mr-1 text-base text-red-500" />
           <p className="text-sm font-medium uppercase text-gray-500">
             Falha: {failureCount}
           </p>
