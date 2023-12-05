@@ -1,46 +1,67 @@
-# Getting Started with Create React App
+# SPACE X - FRONTEND
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+_This is a challenge by [Coodesh](https://coodesh.com/)._
 
-## Available Scripts
 
-In the project directory, you can run:
+### Sobre o projeto
+Este é o frontend de uma aplicação criada como parte de um desafio técnico. O projeto foi desenvolvido para oferecer uma interface visual atraente e amigável, apresentando informações detalhadas sobre os lançamentos de foguetes da SpaceX.
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Tecnologias Utilizadas
+* Typescript
+* React
+* Radix
+* React Query
+* Axios
+* ChartJS
+* TailwindCSS
+* Shadcn/ui
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+### Instruções para executar o projeto
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+_Existem três formas de executar o projeto:_
 
-### `yarn build`
+-   _Executando o projeto localmente com Docker_
+-   _Executando o projeto localmente de forma manual_
+-   _Acessando a URL de deploy_
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Executando o projeto localmente com Docker
+- _Clone o repositório_
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- _Após clonar o repositório, inicie a aplicação com o comando:_
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+docker-compose up
+```
+_Quando o processo terminar, a aplicação estará sendo executada na porta 3000._
 
-### `yarn eject`
+**_O projeto, executado por meio do Docker, faz uso da API via a URL de deploy. Devido à sua hospedagem em um servidor gratuito, é possível que as primeiras requisições enfrentem pequenas lentidões._**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Executando o projeto localmente de forma manual
+-  _Clone o repositório_
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- _Após clonar o repositório, instale as dependências do projeto:_
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+yarn install
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- _Execute o projeto:_
 
-## Learn More
+```
+yarn start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+_Quando o processo terminar, a aplicação estará sendo executada na porta 3000._
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Acessando a URL de deploy
+
+_A forma mais rápida para executar a aplicação, basta usar a seguinte url:_
+
+```
+https://marcenaria-diferente-full-stack-challenge-frontend.vercel.app/
+```
+**_Ao acessar a aplicação por meio do deploy, é possível notar uma leve lentidão nas primeiras requisições. Isso ocorre devido à execução da aplicação em um servidor gratuito._**
+
