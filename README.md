@@ -53,6 +53,8 @@ yarn install
 yarn start
 ```
 
+**_Para garantir o correto funcionamento da aplicação em execução no ambiente local, é fundamental assegurar que o backend também esteja sendo executado localmente e acessível através da porta 4000. Verifique cuidadosamente se o backend está ativo, pois isso é crucial para que o frontend possa realizar as devidas requisições com sucesso._**
+
 _Quando o processo terminar, a aplicação estará sendo executada na porta 3000._
 
 
